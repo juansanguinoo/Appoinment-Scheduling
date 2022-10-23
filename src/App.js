@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
-import Form from "./components/Form";
-import Appointment from "./components/Appointment";
+import React, { useState, useEffect } from 'react';
+import Form from './components/Form';
+import Appointment from './components/Appointment';
 
 function App() {
-
   // Appointments in local storage
-  let initialAppointments = JSON.parse(localStorage.getItem("appointments"))
+  let initialAppointments = JSON.parse(localStorage.getItem('appointments'));
   if (!initialAppointments) {
     initialAppointments = [];
   }
@@ -15,14 +14,13 @@ function App() {
 
   //Use effect to perform certain actions when the state changes
   useEffect(() => {
-    let initialAppointments = JSON.parse(localStorage.getItem("appointments"));
+    let initialAppointments = JSON.parse(localStorage.getItem('appointments'));
     if (initialAppointments) {
-      localStorage.setItem("appointments", JSON.stringify(appointments));
+      localStorage.setItem('appointments', JSON.stringify(appointments));
     } else {
-      localStorage.setItem("appointments", JSON.stringify([]));
+      localStorage.setItem('appointments', JSON.stringify([]));
     }
-  }
-    , [appointments]);
+  }, [appointments]);
 
   // Function to take current appointments and add the new one
   const createAppointment = (appointment) => {
@@ -39,7 +37,7 @@ function App() {
 
   // Conditional message
   const title =
-    appointments.length === 0 ? "No Appointments" : "Manage your appointments";
+    appointments.length === 0 ? 'No Appointments' : 'Manage your appointments';
 
   return (
     <>

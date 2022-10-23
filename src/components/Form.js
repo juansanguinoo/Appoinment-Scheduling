@@ -1,15 +1,15 @@
-import React from 'react'
+import React from 'react';
 import { useState } from 'react';
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 
 const Form = ({ createAppointment }) => {
   const [appointment, setAppointment] = useState({
-    pet: "",
-    owner: "",
-    date: "",
-    time: "",
-    symptoms: "",
+    pet: '',
+    owner: '',
+    date: '',
+    time: '',
+    symptoms: '',
   });
 
   const [error, setError] = useState(false);
@@ -27,7 +27,13 @@ const Form = ({ createAppointment }) => {
     e.preventDefault();
 
     // Validate
-    if ( pet.trim() === "" || owner.trim() === "" || date.trim() === "" || time.trim() === "" || symptoms.trim() === "") {
+    if (
+      pet.trim() === '' ||
+      owner.trim() === '' ||
+      date.trim() === '' ||
+      time.trim() === '' ||
+      symptoms.trim() === ''
+    ) {
       setError(true);
       return;
     }
@@ -43,11 +49,11 @@ const Form = ({ createAppointment }) => {
 
     // Reset form
     setAppointment({
-      pet: "",
-      owner: "",
-      date: "",
-      time: "",
-      symptoms: "",
+      pet: '',
+      owner: '',
+      date: '',
+      time: '',
+      symptoms: '',
     });
   };
 
@@ -101,8 +107,7 @@ const Form = ({ createAppointment }) => {
           className="u-full-width"
           name="symptoms"
           onChange={handleChange}
-          value={symptoms}
-        ></textarea>
+          value={symptoms}></textarea>
 
         <button type="submit" className="u-full-width button-primary">
           Add Appointment
@@ -114,6 +119,6 @@ const Form = ({ createAppointment }) => {
 
 Form.propTypes = {
   createAppointment: PropTypes.func.isRequired,
-}
+};
 
-export default Form
+export default Form;
